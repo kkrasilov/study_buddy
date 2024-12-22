@@ -1,0 +1,14 @@
+concurrency: '%{processors}'
+
+CommitMsg:
+  ALL:
+    enabled: false
+
+PreCommit:
+  RuboCop:
+    enabled: true
+    description: 'Analyze with RuboCop'
+    on_warn: fail
+    install_command: 'BUNDLE_GEMFILE=gemfiles/rubocop.gemfile bundle'
+    env: { BUNDLE_GEMFILE: 'gemfiles/rubocop.gemfile'}
+    command: ['rubocop']
