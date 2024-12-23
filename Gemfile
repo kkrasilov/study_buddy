@@ -1,7 +1,7 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby '3.2.2'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
@@ -17,11 +17,12 @@ gem 'rails-i18n'
 gem 'redis', '~> 4.0'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
+gem 'tailwindcss-rails'
 gem 'turbo-rails'
 
 group :development, :test do
   gem 'letter_opener'
   gem 'mina'
   gem 'overcommit'
-  gem "pry-rails"
+  gem 'pry-rails'
 end
