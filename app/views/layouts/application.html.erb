@@ -8,10 +8,18 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://ga.jspm.io/npm:toastify-js@1.12.0/src/toastify.css", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
+<body>
+<div class="flex flex-row">
+  <sidebar>
+    <%= render "shared/flash" if flash.present?%>
+    <%= render 'layouts/sidebar' %>
+  </sidebar>
+  <main class="flex-1 ml-64 p-4">
     <%= yield %>
-  </body>
+  </main>
+</div>
+</body>
 </html>

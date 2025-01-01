@@ -1,0 +1,49 @@
+<div class="pt-0 flex flex-col justify-center mt-[100px]">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto w-[500px]">
+    <div class="absolute inset-0 bg-gradient-to-r from-yellow-300 to-yellow-500 shadow-lg 
+    transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+    </div>
+    <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 border border-yellow-300">
+      <div class="mx-auto">
+        <%= render partial: 'shared/form_errors', locals: { model: @user } %>
+        <div>
+          <h1 class="text-2xl font-semibold text-gray-700"><%= t('heading.registration') %></h1>
+        </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="mt-5">
+            <div class="mb-5">
+              <%= f.label :login, class: 'block mb-2 text-sm font-medium text-gray-900' %>
+              <%= f.text_field :login, autofocus: true, 
+                class: 'border border-yellow-300 text-gray-500 text-sm rounded-lg focus:ring-yellow-500 
+                focus:border-yellow-500 block w-full p-2.5' %>
+            </div>
+            <div class="mb-5">
+              <%= f.label :email, class: 'block mb-2 text-sm font-medium text-gray-900' %>
+              <%= f.email_field :email, autocomplete: "email", 
+                class: 'border border-yellow-300 text-gray-500 text-sm rounded-lg focus:ring-yellow-500 
+                focus:border-yellow-500 block w-full p-2.5' %>
+            </div>
+            <div class="mb-5">
+              <%= f.label :password, class: 'block mb-2 text-sm font-medium text-gray-900' %>
+              <%= f.password_field :password, autocomplete: "current-password",
+                class: 'border border-yellow-300 text-gray-500 text-sm rounded-lg focus:ring-yellow-500
+                 focus:border-yellow-500 block w-full p-2.5' %>
+            </div>
+            <div class="mb-5">
+              <%= f.label :password_confirmation, class: 'block mb-2 text-sm font-medium text-gray-900' %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password",
+                class: 'border border-yellow-300 text-gray-500 text-sm rounded-lg focus:ring-yellow-500 
+                focus:border-yellow-500 block w-full p-2.5' %>
+            </div>
+            <%= f.submit t('links.register'), 
+              class: 'cursor-pointer text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:outline-none
+               focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center' %>
+            <div class="pt-6">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

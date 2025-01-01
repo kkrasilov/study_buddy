@@ -5,8 +5,11 @@ ruby '3.2.2'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
+gem 'devise'
+gem 'devise-i18n'
 gem 'dotenv-rails'
 gem 'freezolite', require: false
+gem 'hotwire-rails'
 gem 'image_processing', '~> 1.2'
 gem 'importmap-rails'
 gem 'jwt_sessions'
@@ -25,4 +28,8 @@ group :development, :test do
   gem 'mina'
   gem 'overcommit'
   gem 'pry-rails'
+  gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'rubocop-performance'
 end

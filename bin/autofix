@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+APP_ROOT = File.expand_path('..', __dir__)
+Dir.chdir(APP_ROOT) do
+  begin
+    command = 'git diff --name-only --diff-filter=ACMUX HEAD~1'
+
+    files = `#{command}`.split(/\n/).map do |line|
+      line.gsub(/\\\d{3}/) { |v| v[1..3].to_i(8).chr }.force_encoding('UTF-8')
+    end
+
+    rb  = files.select { |f| File.extname(f) == '.rb' && f != 'db/schema.rb' }
+    env = File.exist?('Gemfile.local') ? 'BUNDLE_GEMFILE=Gemfile.local' : ''
+    puts ' >> Rubocop'
+    system("#{env} bundle exec rubocop --auto-correct #{rb.join(' ')}") unless rb.empty?
+  end
+end
