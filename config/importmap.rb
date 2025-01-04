@@ -8,3 +8,5 @@ pin '@hotwired/stimulus', to: 'stimulus.min.js'
 pin '@hotwired/stimulus-loading', to: 'stimulus-loading.js'
 pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin 'preline', to: 'https://cdn.jsdelivr.net/npm/preline@2.7.0/+esm'
+pin "trix", to: "https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"
+pin "@rails/actiontext", to: "actiontext.js"
