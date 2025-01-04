@@ -23,6 +23,9 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'tailwindcss-rails'
 gem 'turbo-rails'
+gem 'vite_rails'
+gem 'sassc-rails'
+
 
 group :development, :test do
   gem 'letter_opener'

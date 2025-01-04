@@ -5,8 +5,8 @@ require 'mina/git'
 require 'mina/rvm'
 
 set :application_name, 'study_buddy'
-set :domain, ENV.fetch('MINA_SETTING_DOMAIN', nil)
-set :user, ENV.fetch('MINA_SETTING_USER', nil)
+set :domain, '82.97.253.42'
+set :user, 'deploy'
 set :deploy_to, '/var/www/study_buddy'
 set :repository, 'https://github.com/kkrasilov/study_buddy.git'
 set :branch, 'develop'
