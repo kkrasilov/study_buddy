@@ -1,4 +1,4 @@
-<div class="pt-0 flex flex-col justify-center mt-[100px]">
+<div class="pt-0 flex flex-col justify-center mt-[30px]">
   <div class="relative py-3 sm:max-w-xl sm:mx-auto w-[500px]">
     <div class="absolute inset-0 bg-gradient-to-r from-yellow-300 to-yellow-500 shadow-lg 
     transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
@@ -20,6 +20,18 @@
             <div class="mb-5">
               <%= f.label :email, class: 'block mb-2 text-sm font-medium text-gray-900' %>
               <%= f.email_field :email, autocomplete: "email", 
+                class: 'border border-yellow-300 text-gray-500 text-sm rounded-lg focus:ring-yellow-500 
+                focus:border-yellow-500 block w-full p-2.5' %>
+            </div>
+            <div class="mb-5">
+              <%= f.label :first_name, class: 'block mb-2 text-sm font-medium text-gray-900' %>
+              <%= f.text_field :first_name,
+                class: 'border border-yellow-300 text-gray-500 text-sm rounded-lg focus:ring-yellow-500 
+                focus:border-yellow-500 block w-full p-2.5' %>
+            </div>
+            <div class="mb-5">
+              <%= f.label :surname, class: 'block mb-2 text-sm font-medium text-gray-900' %>
+              <%= f.text_field :surname,
                 class: 'border border-yellow-300 text-gray-500 text-sm rounded-lg focus:ring-yellow-500 
                 focus:border-yellow-500 block w-full p-2.5' %>
             </div>
