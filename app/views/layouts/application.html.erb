@@ -6,12 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
+<body>
+<div class="flex flex-row">
+  <sidebar>
+    <%= render "shared/flash" if flash.present?%>
+    <%= render 'layouts/sidebar' %>
+  </sidebar>
+  <main class="flex-1 ml-64 p-4">
     <%= yield %>
-  </body>
+  </main>
+</div>
+</body>
 </html>
