@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>StudyBuddy</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+<head>
+  <title>StudyBuddy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 <body>
 <div class="flex flex-row">
   <sidebar>
-    <%= render "shared/flash" if flash.present?%>
+    <%= render "shared/flash" if flash.present? %>
     <%= render 'layouts/sidebar' %>
   </sidebar>
   <main class="flex-1 ml-64 p-4">

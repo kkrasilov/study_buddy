@@ -1,0 +1,27 @@
+<div class="container flex-2 p-4">
+  <%= search_form_for @q, url: articles_path, method: :get, html: { class: "mb-6 flex space-x-4" } do |f| %>
+    <%= f.hidden_field :kind_eq, id: "kind_eq" %>
+    <button
+      type="submit"
+      class="px-4 py-2 text-sm font-medium rounded-lg focus:outline-none focus:ring-4"
+      style="<%= params[:q].try(:[], :kind_eq).blank? ? 'background-color: #FFC107; color: white;' : 'background-color: #FFD54F; color: #616161;' %>"
+      onclick="document.getElementById('kind_eq').value = ''">
+      Все статьи
+    </button>
+
+    <% Article.kinds.keys.each do |kind| %>
+      <button
+        type="submit"
+        class="px-4 py-2 text-sm font-medium rounded-lg focus:outline-none focus:ring-4"
+        style="<%= params[:q].try(:[], :kind_eq) == kind ? 'background-color: #FFC107; color: white;' : 'background-color: #FFD54F; color: #616161;' %>"
+        onclick="document.getElementById('kind_eq').value = '<%= kind %>'">
+        <%= I18n.t("activerecord.attributes.article.kinds.#{kind}") %>
+      </button>
+    <% end %>
+  <% end %>
+  <div class="flex flex-col items-center justify-center flex-wrap -m-2">
+    <% @articles.each do |article| %>
+      <%= render 'card', article: article %>
+    <% end %>
+  </div>
+</div>

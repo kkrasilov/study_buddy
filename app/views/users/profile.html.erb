@@ -8,7 +8,7 @@
               <% if current_user.avatar.attached? %>
                 <%= image_tag(current_user.avatar, class: 'h-42 rounded-full -mt-8 w-[230px] h-[230px]', alt: 'Аватарка') %>
               <% else %>
-                <%= image_tag 'default_avatar.jpg', alt: "Аватарка", class: "h-42 rounded-full -mt-8" %>
+                <%= image_tag 'default_avatar.png', alt: "Аватарка", class: "h-42 rounded-full -mt-8 border border-yellow-300" %>
               <% end %>
             </div>
           </div>

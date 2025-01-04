@@ -16,7 +16,26 @@ ru:
         profession: 'Специальность'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
-        
+      article:
+        title: "Заголовок"
+        kind: "Статус"
+        level: "Сложность"
+        minutes_to_read: "Минут на чтение"
+        visit_count: "Количество просмотров"
+        image: "Заставка"
+        content: "Контент"
+        kinds:
+          development: "Разработка"
+          scientific_pop: "Научпоп"  
+        levels:
+          easy: "Легко"
+          middle: "Средне"
+          hard: "Сложно"
+      article/level:
+        easy: "Легко"
+        middle: "Средне"
+        hard: "Сложно"
+    
     errors:
       models:
         subscription:
