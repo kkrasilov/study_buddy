@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :login, presence: true
   validates :email, presence: true
 
+  has_one_attached :avatar
+
   def short_name
     "#{surname} #{first_name}"
   end

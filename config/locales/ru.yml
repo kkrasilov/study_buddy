@@ -10,6 +10,10 @@ ru:
         surname: 'Фамилия'
         last_name: 'Отчество'
         avatar: 'Аватарка'
+        country: 'Страна'
+        city: 'Город'
+        institution: 'Учебное заведение'
+        profession: 'Специальность'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         
@@ -46,6 +50,7 @@ ru:
     load: 'Загрузить'
     to_home: 'На главную'
     to_home_errors: 'на главную страницу'
+    start: 'Начать использовать'
 
   devise:
     characters_minimum: 'минимальное количесвто символов'
