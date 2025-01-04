@@ -1,154 +1,102 @@
-
-<div class="container flex-2 p-4">
-  <!-- Фильтры -->
-  <div class="mb-6 flex space-x-4">
-    <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300">Все статьи</button>
-    <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300">Бекенд</button>
-    <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300">Фронтенд</button>
+<div class="flex flex-col items-center mt-10 gap-8 mb-[100px]">
+  <div class="flex flex-wrap gap-16 items-center">
+    <div class="flex flex-col p-8 text-gray-900 w-[550px] items-start gap-8">
+      <h2 class="text-5xl font-extralight text-gray-800">
+        Учись вместе, развивайся быстрее
+      </h2>
+      <p class="text-gray-700">
+        <span class="font-medium">StudyBuddy</span> – ваша платформа для совместного обучения и обмена знаниями. Здесь вы найдете всё 
+        необходимое для эффективной подготовки к учебе и взаимодействия с другими студентами.
+      </p>
+      <%= link_to t('links.register'), new_user_registration_path, class: 'cursor-pointer text-white bg-yellow-500 
+            hover:bg-yellow-600 focus:ring-4 focus:outline-none 
+            focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center' %>
+    </div>
+    <div class="bg-g">
+      <%= image_tag 'landing/image_1.png', class: 'w-[550px] h-[550px] object-cover', alt: 'Изображение для лендинга' %>
+    </div>
   </div>
-
-  <!-- Flex для статей -->
-  <div class="flex flex-wrap -m-2">
-    <!-- Карточка статьи -->
-    <div class="flex flex-col w-full md:w-1/2 lg:w-1/3 p-2">
-      <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img class="rounded-t-lg" src="image-1.jpg" alt="" />
-        </a>
-        <div class="p-5">
-          <div class="flex space-x-4">
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">speed</span>
-              <span class="text-blue-500">Простой</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">access_time</span>
-              <span class="text-blue-500">11 мин</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">visibility</span>
-              <span class="text-blue-500">33</span>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Самые продвинутые LLM дают прогнозы своего развития на 2025 год</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Я задал следующий вопрос наиболее популярным LLM.</p>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Сделай прогноз на 2025 год...</p>
-          <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Читать далее
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Карточка статьи -->
-    <div class="flex flex-col w-full md:w-1/2 lg:w-1/3 p-2">
-      <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img class="rounded-t-lg" src="image-1.jpg" alt="" />
-        </a>
-        <div class="p-5">
-          <div class="flex space-x-4">
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">speed</span>
-              <span class="text-blue-500">Простой</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">access_time</span>
-              <span class="text-blue-500">11 мин</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">visibility</span>
-              <span class="text-blue-500">33</span>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Самые продвинутые LLM дают прогнозы своего развития на 2025 год</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Я задал следующий вопрос наиболее популярным LLM.</p>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Сделай прогноз на 2025 год...</p>
-          <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Читать далее
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Карточка статьи -->
-    <div class="flex flex-col w-full md:w-1/2 lg:w-1/3 p-2">
-      <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img class="rounded-t-lg" src="image-1.jpg" alt="" />
-        </a>
-        <div class="p-5">
-          <div class="flex space-x-4">
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">speed</span>
-              <span class="text-blue-500">Простой</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">access_time</span>
-              <span class="text-blue-500">11 мин</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">visibility</span>
-              <span class="text-blue-500">33</span>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Самые продвинутые LLM дают прогнозы своего развития на 2025 год</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Я задал следующий вопрос наиболее популярным LLM.</p>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Сделай прогноз на 2025 год...</p>
-          <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Читать далее
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Карточка статьи -->
-    <div class="flex flex-col w-full md:w-1/2 lg:w-1/3 p-3">
-      <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img class="rounded-t-lg" src="image-1.jpg" alt="" />
-        </a>
-        <div class="p-5">
-          <div class="flex space-x-4">
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">speed</span>
-              <span class="text-blue-500">Простой</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">access_time</span>
-              <span class="text-blue-500">11 мин</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <span class="material-icons text-blue-500 text-xl">visibility</span>
-              <span class="text-blue-500">33</span>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Самые продвинутые LLM дают прогнозы своего развития на 2025 год</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Я задал следующий вопрос наиболее популярным LLM.</p>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Сделай прогноз на 2025 год...</p>
-          <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Читать далее
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Добавьте другие карточки статей -->
+  <div class="flex">
+    <h2 class="text-4xl font-medium text-gray-800">
+      Что вас ждет?
+    </h2>
   </div>
+  <div class="flex flex-wrap gap-16 items-center">
+    <div class="bg-g">
+      <%= image_tag 'landing/image_2.jpg', class: 'w-[550px] h-[550px] object-cover', alt: 'Изображение для лендинга' %>
+    </div>
+    <div class="flex flex-col p-8 text-gray-900 w-[550px] items-start gap-8">
+      <h2 class="text-5xl font-extralight text-gray-800">
+        Учебные группы
+      </h2>
+      <p class="text-gray-700">
+        Создавайте группы по интересам, присоединяйтесь к другим и учитесь вместе. Совместная работа помогает лучше
+        усвоить материал и развить навыки взаимодействия.
+      </p>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-16 items-center">
+    <div class="flex flex-col p-8 text-gray-900 w-[550px] items-start gap-8">
+      <h2 class="text-5xl font-extralight text-gray-800">
+        Редактирование документов онлайн
+      </h2>
+      <p class="text-gray-700">
+        Работайте над конспектами и проектами в реальном времени. Совместное редактирование ускоряет подготовку
+        и улучшает качество ваших материалов.
+      </p>
+    </div>
+    <div class="bg-g">
+      <%= image_tag 'landing/image_3.jpg', class: 'w-[550px] h-[550px] object-cover', alt: 'Изображение для лендинга' %>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-16 items-center">
+    <div class="bg-g">
+      <%= image_tag 'landing/image_4.jpg', class: 'w-[550px] h-[550px] object-cover', alt: 'Изображение для лендинга' %>
+    </div>
+    <div class="flex flex-wrap gap-16 items-center">
+      <div class="flex flex-col p-8 text-gray-900 w-[550px] items-start gap-8">
+        <h2 class="text-5xl font-extralight text-gray-800">
+          Онлайн-встречи и дискуссии
+        </h2>
+        <p class="text-gray-700">
+          Организуйте видео встречи, обсуждайте сложные темы и решайте задачи вместе. Учебные дискуссии
+          становятся доступными, где бы вы ни находились.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-16 items-center">
+    <div class="flex flex-wrap gap-16 items-center">
+      <div class="flex flex-col p-8 text-gray-900 w-[550px] items-start gap-8">
+        <h2 class="text-5xl font-extralight text-gray-800">
+          Обмен учебными ресурсами и дискуссии
+        </h2>
+        <p class="text-gray-700">
+          Загружайте и делитесь презентациями, статьями и заданиями. Доступ к полезным материалам - 
+          прямо на кончиках ваших пальцев.
+        </p>
+      </div>
+    </div>
+    <div class="bg-g">
+      <%= image_tag 'landing/image_5.png', class: 'w-[550px] h-[550px] object-cover', alt: 'Изображение для лендинга' %>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-16 items-center">
+    <div class="bg-g">
+      <%= image_tag 'landing/image_6.jpg', class: 'w-[550px] h-[550px] object-cover', alt: 'Изображение для лендинга' %>
+    </div>
+    <div class="flex flex-wrap gap-16 items-center">
+      <div class="flex flex-col p-8 text-gray-900 w-[550px] items-start gap-8">
+        <h2 class="text-5xl font-extralight text-gray-800">
+          Система вопросов и ответов
+        </h2>
+        <p class="text-gray-700">Задавайте вопросы, делитесь ответами и помогайте друг другу. Ваша учебная команда 
+          всегда готова помочь, когда это нужно.
+        </p>
+      </div>
+    </div>
+  </div>
+  <%= link_to t('links.start'), new_user_registration_path, class: 'cursor-pointer text-white bg-yellow-500 
+            hover:bg-yellow-600 focus:ring-4 focus:outline-none
+            focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center' %>
 </div>

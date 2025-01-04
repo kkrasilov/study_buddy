@@ -1,4 +1,6 @@
 import { Application } from "@hotwired/stimulus"
+import toast from './toast'
+window.toast = toast;
 
 const application = Application.start()
 

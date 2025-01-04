@@ -1,0 +1,44 @@
+<div class="p-6 flex items-center justify-center">
+  <div class="container max-w-screen-lg mx-auto">
+    <div>
+      <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 border border-yellow-300">
+        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="text-gray-600">
+            <p class="font-medium text-lg"><%= t('heading.еdit_password') %></p>
+          </div>
+          <%= render partial: 'shared/form_errors', locals: { model: @user } %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
+            <div class="lg:col-span-2">
+              <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="md:col-span-5">
+                  <%= f.label :password, class: 'text-gray-700' %>
+                  <%= f.password_field :password, class: 'h-10 border mt-1 border border-gray-200 rounded px-4 w-full bg-gray-50' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :password_confirmation, class: 'text-gray-700' %>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'h-10 border 
+                  mt-1 rounded px-4 w-full bg-gray-50 border border-gray-200' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :current_password, class: 'text-gray-700' %>
+                  <%= f.password_field :current_password, autocomplete: "current-password", class: 'h-10 border 
+                  mt-1 rounded px-4 w-full bg-gray-50 border border-gray-200' %>
+                </div>
+                <div class="md:col-span-5 text-right">
+                  <div class="inline-flex items-end">
+                    <%= f.submit t('links.update'), class: 'cursor-pointer text-white bg-yellow-500 
+                       hover:bg-yellow-600 focus:ring-4 focus:outline-none 
+                       focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <%= button_to t('links.delete_profile'), registration_path(resource_name),
+          method: :delete, class: 'text-red-500', form: { data: { turbo_confirm: 'Вы уверены?' } } %>
+        <%= link_to t('links.to_return'), :back, class: 'text-gray-600 hover:text-yellow-500' %>
+      </div>
+    </div>
+  </div>
+</div>
