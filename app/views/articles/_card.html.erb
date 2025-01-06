@@ -1,5 +1,7 @@
 <div class="flex justify-center items-center w-[900px]">
-  <%= image_tag(article.image, class: 'h-42 w-[300px] h-[300px]', alt: 'Изображение статьи') %>
+  <% if  article.image.attached? %>
+    <%= image_tag(article.image, class: 'h-42 w-[300px] h-[300px]', alt: 'Изображение статьи') %>
+  <% end %>
   <div>
     <h3 class="text-xl font-semibold text-gray-800"><%= article.title %></h3>
     <div class="flex items-center gap-4 mt-2">
