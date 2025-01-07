@@ -2,9 +2,9 @@
 
 class Group
   class Document < ApplicationRecord
-    belongs_to :author, class_name: 'User'
+    belongs_to :author, class_name: '::User'
     belongs_to :group
 
-    has_one_attached :document
+    has_one_attached :file
   end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :welcome, only: :index
   resources :groups do
+    resources :documents, only: %i[create destroy], module: 'groups'
     post :join, on: :collection
   end
   resources :articles, only: %i[index new create edit update show]

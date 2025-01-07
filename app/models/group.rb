@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Group < ApplicationRecord
-  belongs_to :author, class_name: 'User'
-  has_many :group_users, dependent: :destroy
+  belongs_to :author, class_name: '::User'
+  has_many :group_users, class_name: 'Group::User', dependent: :destroy
   has_many :users, through: :group_users
-  has_many :documents, class_name: 'GroupDocument', dependent: :destroy
+  has_many :documents, class_name: 'Group::Document', dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true

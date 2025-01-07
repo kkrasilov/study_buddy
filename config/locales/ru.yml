@@ -41,6 +41,8 @@ ru:
         name: 'Название'
         description: 'Описание'
         token: 'Токен'
+      group/document:
+        document: Файл
 
     errors:
       models:
@@ -101,7 +103,7 @@ ru:
     updated: 'Данные обновлены'
     need_sign_in: 'Необхоидмо авторизоваться'
     not_found: 'Запись не найдена'
-    delete_project: 'Проект удален'
+    delete_document: 'Документ удален'
   
   pundit:
     not_authorized: 'Нет доступа'
