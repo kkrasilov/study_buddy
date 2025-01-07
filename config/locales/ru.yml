@@ -17,25 +17,31 @@ ru:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
       article:
-        title: "Заголовок"
-        kind: "Статус"
-        level: "Сложность"
-        minutes_to_read: "Минут на чтение"
-        visit_count: "Количество просмотров"
-        image: "Заставка"
-        content: "Контент"
+        title: 'Заголовок'
+        kind: 'Статус'
+        level: 'Сложность'
+        minutes_to_read: 'Минут на чтение'
+        visit_count: 'Количество просмотров'
+        image: 'Заставка'
+        content: 'Контент'
         kinds:
-          development: "Разработка"
-          scientific_pop: "Научпоп"  
+          development: 'Разработка'
+          scientific_pop: 'Научпоп'  
         levels:
-          easy: "Легко"
-          middle: "Средне"
-          hard: "Сложно"
+          easy: 'Легко'
+          middle: 'Средне'
+          hard: 'Сложно'
       article/level:
-        easy: "Легко"
-        middle: "Средне"
-        hard: "Сложно"
-    
+        easy: 'Легко'
+        middle: 'Средне'
+        hard: 'Сложно'
+      group:
+        author: 'Автор'
+        image: 'Фото'
+        name: 'Название'
+        description: 'Описание'
+        token: 'Токен'
+
     errors:
       models:
         subscription:
@@ -70,6 +76,9 @@ ru:
     to_home: 'На главную'
     to_home_errors: 'на главную страницу'
     start: 'Начать использовать'
+    join_group: 'Присоединится'
+    create_group: 'Создать группу'
+    show_group: 'Войти в группу'
 
   devise:
     characters_minimum: 'минимальное количесвто символов'
@@ -93,3 +102,8 @@ ru:
     need_sign_in: 'Необхоидмо авторизоваться'
     not_found: 'Запись не найдена'
     delete_project: 'Проект удален'
+  
+  pundit:
+    not_authorized: 'Нет доступа'
+  group:
+    joined: 'Вы вступили в группу'

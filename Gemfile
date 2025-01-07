@@ -25,6 +25,7 @@ gem 'tailwindcss-rails'
 gem 'turbo-rails'
 gem 'vite_rails'
 gem 'sassc-rails'
+gem 'pundit'
 
 
 group :development, :test do
