@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root 'groups#index'
 
   resources :welcome, only: :index
+  resources :groups do
+    post :join, on: :collection
+  end
   resources :articles, only: %i[index new create edit update show]
   resources :users, only: %i[edit update] do
     get :profile, on: :collection

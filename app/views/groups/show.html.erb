@@ -1,0 +1,62 @@
+<div class="w-full flex justify-center mt-10">
+  <%= render "modal_share" %>
+  <div class="container">
+    <div class="flex flex-col items-center gap-6">
+      <div>
+        <% if @group.image.attached? %>
+          <%= image_tag(@group.image, class: 'rounded-full h-[200px] w-[200px] m-4 object-cover border border-gray', alt: 'Изображение группы') %>
+        <% else %>
+          <%= vite_image_tag 'images/default_group.jpg', alt: "Аватарка", class: "rounded-full h-100 w-100 m-4 border object-cover border-gray" %>
+        <% end %>
+      </div>
+      <div class="font-semibold text-3xl">
+        <%= @group.name %>
+      </div>
+      <div class="w-7/12 text-center">
+        <%= @group.description %>
+      </div>
+      <div class="flex gap-2">
+        <div class="relative">
+          <p id="group-token" class="hidden"><%= @group.token %></p>
+          <button id="token-copy-button" class="cursor-pointer text-white bg-yellow-500 
+                       hover:bg-yellow-600 focus:ring-4 focus:outline-none 
+                       focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center flex items-center gap-2">
+            <span>Скопировать токен</span>
+            <span class="material-icons">share</span>
+          </button>
+        </div>
+        <div class="relative">
+          <p id="group-url-with-token" class="hidden"><%= "http://localhost:3000/groups/#{@group.id}?token=#{@group.token}" %></p>
+          <button id="token-url-copy-button" class="cursor-pointer text-white bg-yellow-500 
+                       hover:bg-yellow-600 focus:ring-4 focus:outline-none 
+                       focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center flex items-center gap-2">
+            <span>Скопировать ссылку</span>
+            <span class="material-icons">link</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-3 ml-60 mt-10 ">
+      <h4 class="text-2xl font-medium">
+        Участники
+      </h4>
+      <div class="flex gap-3">
+        <% @group.users.each do |user| %>
+          <div class="flex flex-col items-center text-gray-700">
+            <% if user.avatar.attached? %>
+              <%= image_tag(user.avatar, class: 'rounded-full h-[50px] w-[50px] cursor-pointer', alt: 'Аватар пользователя', title: user.short_name) %>
+            <% else %>
+              <%= vite_image_tag 'images/default_avatar.png', alt: "Аватарка", class: "border border-yellow-300 rounded-full h-[50px] w-[50px] cursor-pointer", title: user.short_name %>
+            <% end %>
+            <div class="mt-2">
+              <%= user.first_name %>
+            </div>
+            <div>
+              <%= user.surname %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
