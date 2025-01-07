@@ -47,7 +47,7 @@ class GroupsController < ApplicationController
   def join
     group = Group.find_by(token: params[:token])
     if group.present?
-      record = GroupUser.find_or_create_by(user: current_user, group: group)
+      record = Group::User.find_or_create_by(user: current_user, group: group)
       flash[:notice] = I18n.t('group.joined') if record.previously_new_record?
       redirect_to group_path(group)
     else
@@ -72,7 +72,7 @@ class GroupsController < ApplicationController
     return if @group.author == current_user
 
     if params[:token] == @group.token
-      GroupUser.create(user: current_user, group: @group)
+      Group::User.create(user: current_user, group: @group)
       flash[:notice] = I18n.t('group.joined')
     end
   end

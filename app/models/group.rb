@@ -4,6 +4,7 @@ class Group < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :group_users, dependent: :destroy
   has_many :users, through: :group_users
+  has_many :documents, class_name: 'GroupDocument', dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true
@@ -20,6 +21,6 @@ class Group < ApplicationRecord
   end
 
   def add_author_to_users
-    GroupUser.create(user_id: author_id, group_id: id)
+    Group::User.create(user_id: author_id, group_id: id)
   end
 end
