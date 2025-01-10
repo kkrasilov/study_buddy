@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
 
   def show
     authorize @group
+    @new_message = current_user.messages.build(group: @group)
   end
 
   def new
