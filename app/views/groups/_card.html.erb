@@ -24,7 +24,7 @@
     <% end %>
   </div>
   <div class="ml-4 mb-4 mt-4">
-    <%= link_to t('links.show_group'), group_path(group), class: 'cursor-pointer text-white bg-yellow-500 
+    <%= link_to t('links.show_group'), group_path(group), data: { turbo: false }, class: 'cursor-pointer text-white bg-yellow-500 
                        hover:bg-yellow-600 focus:ring-4 focus:outline-none 
                        focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center' %>
   </div>

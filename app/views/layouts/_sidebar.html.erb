@@ -38,7 +38,7 @@
         <% if current_user.present? %>
           <li>
             <%= link_to root_path, class: 'relative flex flex-row items-center h-11 focus:outline-none text-gray-600 
-                border-l-4 border-transparent hover:border-yellow-500 hover:bg-yellow-50 hover:text-yellow-500 pr-6' do %>
+                border-l-4 border-transparent hover:border-yellow-500 hover:bg-yellow-50 hover:text-yellow-500 pr-6', data: { turbo: false } do %>
               <span class="inline-flex justify-center items-center ml-4">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 
