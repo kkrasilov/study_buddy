@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :group_users, class_name: 'Group::User', dependent: :destroy
   has_many :groups, through: :group_users
+  has_many :messages, -> { sorted }, class_name: 'Group::Message', dependent: :destroy
 
   validates :login, uniqueness: true
   validates :email, uniqueness: true
