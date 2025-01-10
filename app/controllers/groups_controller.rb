@@ -7,7 +7,8 @@ class GroupsController < ApplicationController
   def index
     return redirect_to welcome_index_path unless current_user.present?
 
-    @groups = policy_scope(Group)
+    @q = policy_scope(Group).ransack(params[:q])
+    @groups = @q.result
   end
 
   def show

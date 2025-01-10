@@ -16,6 +16,10 @@ class Group < ApplicationRecord
 
   has_one_attached :image
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name]
+  end
+
   private
 
   def set_token
