@@ -1,3 +1,13 @@
 @import "trix";
 @import "../stylesheets/toast";
 @import "../../assets/stylesheets/application.css";
+.trix-button-group button,
+.trix-button-group button span {
+  font-size: 10px;
+}
+
+trix-editor {
+  min-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+}

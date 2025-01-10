@@ -1,4 +1,12 @@
 ru:
+  date:
+    formats:
+      custom: "%-d %B %Y"
+    month_names: [~, "января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
+  time:
+    formats:
+      custom: "%-d %B %Y, %H:%M"
+    
   activerecord:
     models:
       user: 'Пользователь'
@@ -14,8 +22,12 @@ ru:
         city: 'Город'
         institution: 'Учебное заведение'
         profession: 'Специальность'
+        gender: 'Пол'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+        genders:
+          male: 'Мужской'
+          female: 'Женский'
       article:
         title: 'Заголовок'
         kind: 'Статус'
@@ -42,7 +54,12 @@ ru:
         description: 'Описание'
         token: 'Токен'
       group/document:
-        document: Файл
+        document: 'Файл'
+      group/question:
+        title: 'Ваш вопрос'
+        body: 'Описание вопроса'
+      group/question/answer:
+        body: 'Ваш ответ'
 
     errors:
       models:
@@ -81,6 +98,7 @@ ru:
     join_group: 'Присоединится'
     create_group: 'Создать группу'
     show_group: 'Войти в группу'
+    send_answer: 'Отправить ответ'
 
   devise:
     characters_minimum: 'минимальное количесвто символов'
@@ -104,8 +122,15 @@ ru:
     need_sign_in: 'Необхоидмо авторизоваться'
     not_found: 'Запись не найдена'
     delete_document: 'Документ удален'
+    add_question: 'Вопрос добавлен'
+    add_answer: 'Ответ добавлен'
   
   pundit:
     not_authorized: 'Нет доступа'
   group:
     joined: 'Вы вступили в группу'
+
+  answers:
+    one: "%{count} ответ"
+    few: "%{count} ответа"
+    many: "%{count} ответов"

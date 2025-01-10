@@ -1,0 +1,20 @@
+<div class="flex flex-col gap-3 mt-5 w-full">
+  <h4 class="text-2xl font-medium mb-2">
+    Вопросы и ответы
+  </h4>
+  <div class="flex flex-col gap-3 flex-wrap ml-2">
+    <% @group.questions.order(:created_at).limit(4).each do |question| %>
+      <div class="flex flex-col text-gray-700 gap-3">
+        <div class="text-sm flex justify-start">
+          <div class="w-[230px] border-r-2 border-yellow-300 ">
+            <span>Автор:</span>
+            <span class="font-semibold pr-2"><%= question.author.short_name %></span>
+          </div>
+          <%= link_to group_question_path(group_id: @group.id, id: question.id ) do %>
+            <span class="hover:text-yellow-500 hover:font-bold ml-4"><%= question.title %></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

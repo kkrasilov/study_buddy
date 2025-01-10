@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   resources :welcome, only: :index
   resources :groups do
     resources :documents, only: %i[create destroy], module: 'groups'
+    resources :questions, only: %i[index show create], module: 'groups' do
+      resources :answers, only: %i[create], module: 'questions'
+    end
+
     post :join, on: :collection
   end
   resources :articles, only: %i[index new create edit update show]
-  resources :users, only: %i[edit update] do
-    get :profile, on: :collection
-  end
+  resources :users, only: %i[show edit update]
 end

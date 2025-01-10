@@ -5,6 +5,7 @@ class Group < ApplicationRecord
   has_many :group_users, class_name: 'Group::User', dependent: :destroy
   has_many :users, through: :group_users
   has_many :documents, class_name: 'Group::Document', dependent: :destroy
+  has_many :questions, class_name: 'Group::Question', dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true

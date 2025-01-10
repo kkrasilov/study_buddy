@@ -14,10 +14,12 @@
   </div>
   <div class="ml-4 mr-4 flex justify-start gap-2 flex-wrap">
     <% group.users.each do |user| %>
-      <% if user.avatar.attached? %>
-        <%= image_tag(user.avatar, class: 'rounded-full h-10  w-10 cursor-pointer', alt: 'Аватар пользователя', title: user.short_name) %>
-      <% else %>
-        <%= vite_image_tag 'images/default_avatar.png', alt: "Аватарка", class: "border border-yellow-300 rounded-full h-10  w-10 cursor-pointer", title: user.short_name %>
+      <%= link_to user_path(user) do %>
+        <% if user.avatar.attached? %>
+          <%= image_tag(user.avatar, class: 'rounded-full h-10  w-10 cursor-pointer object-cover', alt: 'Аватар пользователя', title: user.short_name) %>
+        <% else %>
+          <%= vite_image_tag default_avatar_name(user), alt: "Аватарка", class: "border border-yellow-300 rounded-full h-10  w-10 cursor-pointer object-cover", title: user.short_name %>
+        <% end %>
       <% end %>
     <% end %>
   </div>

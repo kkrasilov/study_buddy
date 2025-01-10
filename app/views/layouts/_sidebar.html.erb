@@ -9,9 +9,9 @@
       <% if current_user.present? %>
         <div class="flex items-center space-x-4 p-2 mb-5 border-b border-yellow-300">
           <% if current_user.avatar.attached? %>
-            <%= image_tag(current_user.avatar, class: 'h-12 rounded-full', alt: 'Аватарка') %>
+            <%= image_tag(current_user.avatar, class: 'h-[60px] w-[60px] rounded-full object-cover', alt: 'Аватарка') %>
           <% else %>
-            <%= vite_image_tag 'images/default_avatar.png', alt: "Аватарка", class: "h-12 rounded-full border border-yellow-300" %>
+            <%= vite_image_tag default_avatar_name(current_user), alt: "Аватарка", class: "h-[60px] w-[60px] rounded-full border border-yellow-300 object-cover" %>
           <% end %>
           <div>
             <h4 class="font-light text-lg text-gray-700 capitalize font-poppins tracking-wide">
@@ -68,7 +68,7 @@
             </div>
           </li>
           <li>
-            <%= link_to profile_users_path, class: 'relative flex flex-row items-center h-11 focus:outline-none text-gray-600 
+            <%= link_to user_path(current_user), class: 'relative flex flex-row items-center h-11 focus:outline-none text-gray-600 
            border-l-4 border-transparent hover:border-yellow-500 hover:bg-yellow-50 hover:text-yellow-500 pr-6' do %>
               <span class="inline-flex justify-center items-center ml-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

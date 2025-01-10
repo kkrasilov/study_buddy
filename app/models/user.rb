@@ -13,6 +13,11 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  enum gender: {
+    male: 'male',
+    female: 'female'
+  }
+
   def short_name
     "#{surname} #{first_name}"
   end

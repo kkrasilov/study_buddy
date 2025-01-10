@@ -1,25 +1,28 @@
-<div class="w-full flex justify-center mt-10">
+<div class="flex justify-center mb-[100px]">
   <%= render 'groups/show/document_modal' %>
-  <div class="container">
-    <div class="flex flex-col items-center gap-6">
+  <%= render 'groups/show/question_modal' %>
+  <div class="container w-8/12">
+    <div class="flex flex-col items-center gap-4">
       <div>
         <% if @group.image.attached? %>
           <%= image_tag(@group.image, class: 'rounded-full h-[200px] w-[200px] m-4 object-cover border border-gray', alt: 'Изображение группы') %>
         <% else %>
-          <%= vite_image_tag 'images/default_group.jpg', 
-            alt: "Изображение группы", 
+          <%= vite_image_tag 'images/default_group.jpg',
+            alt: "Изображение группы",
             class: "h-[200px] w-[200px] rounded-full h-100 w-100 m-4 border object-cover border-gray" %>
         <% end %>
       </div>
-      <div class="font-semibold text-3xl">
+      <div class="font-semibold text-3xl text-gray-800">
         <%= @group.name %>
       </div>
-      <div class="w-7/12 text-center">
+      <div class="w-7/12 text-center text-gray-700">
         <%= @group.description %>
       </div>
       <%= render 'groups/show/tokens' %>
       <%= render 'groups/show/users' %>
       <%= render 'groups/show/documents' %>
+      <%= render 'groups/show/questions' %>
+      <%= render 'groups/show/questions_footer' %>
     </div>
   </div>
 </div>
