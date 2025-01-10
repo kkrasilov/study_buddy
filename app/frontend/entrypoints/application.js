@@ -40,13 +40,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-
-document.addEventListener("turbo:frame-load", function() {
-    // Ваш код для реинициализации изображений
-    const images = document.querySelectorAll('img');
-    images.forEach(image => {
-        if (image.complete) {
-            image.style.opacity = 1; // или любой другой код для обработки изображений
-        }
-    });
-});
