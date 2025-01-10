@@ -1,0 +1,24 @@
+<div class="flex flex-col gap-3 mt-5">
+  <h4 class="text-2xl font-medium mb-2">
+    Участники
+  </h4>
+  <div class="flex gap-3 flex-wrap w-9/12 ml-2">
+    <% @group.users.each do |user| %>
+      <div class="flex flex-col items-center text-gray-700">
+        <%= link_to user_path(user) do %>
+          <% if user.avatar.attached? %>
+            <%= image_tag(user.avatar, class: 'rounded-full h-[50px] w-[50px] cursor-pointer object-cover', alt: 'Аватар пользователя') %>
+          <% else %>
+            <%= vite_image_tag default_avatar_name(user), alt: "Аватарка", class: "border border-yellow-300 rounded-full h-[50px] w-[50px] cursor-pointer object-cover" %>
+          <% end %>
+        <% end %>
+        <div class="mt-2">
+          <%= user.first_name %>
+        </div>
+        <div>
+          <%= user.surname %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

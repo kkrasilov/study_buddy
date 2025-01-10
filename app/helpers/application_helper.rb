@@ -8,4 +8,8 @@ module ApplicationHelper
     else name
     end
   end
+
+  def default_avatar_name(user)
+    user.male? ? 'images/default_avatar.png' : 'images/default_avatar_female.png'
+  end
 end

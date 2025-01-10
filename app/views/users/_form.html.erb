@@ -38,6 +38,10 @@
                   <%= f.text_field :profession, class: 'h-10 border border-gray-200 text-gray-600 mt-1 rounded-lg px-4 w-full' %>
                 </div>
                 <div class="md:col-span-5">
+                  <%= f.label :gender, class: 'text-gray-700' %>
+                  <%= f.select :gender, User.genders.keys.map { |gender| [I18n.t("activerecord.attributes.user.genders.#{gender}"), gender] }, {}, class: 'h-10 border border-gray-200 text-gray-600 mt-1 rounded-lg px-4 w-full' %>
+                </div>
+                <div class="md:col-span-5">
                   <%= f.label :avatar, class: 'text-gray-700' %>
                   <%= f.file_field :avatar, class: 'block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none' %>
                 </div>

@@ -1,4 +1,12 @@
 ru:
+  date:
+    formats:
+      custom: "%-d %B %Y"
+    month_names: [~, "января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
+  time:
+    formats:
+      custom: "%-d %B %Y, %H:%M"
+    
   activerecord:
     models:
       user: 'Пользователь'
@@ -14,28 +22,45 @@ ru:
         city: 'Город'
         institution: 'Учебное заведение'
         profession: 'Специальность'
+        gender: 'Пол'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+        genders:
+          male: 'Мужской'
+          female: 'Женский'
       article:
-        title: "Заголовок"
-        kind: "Статус"
-        level: "Сложность"
-        minutes_to_read: "Минут на чтение"
-        visit_count: "Количество просмотров"
-        image: "Заставка"
-        content: "Контент"
+        title: 'Заголовок'
+        kind: 'Статус'
+        level: 'Сложность'
+        minutes_to_read: 'Минут на чтение'
+        visit_count: 'Количество просмотров'
+        image: 'Заставка'
+        content: 'Контент'
         kinds:
-          development: "Разработка"
-          scientific_pop: "Научпоп"  
+          development: 'Разработка'
+          scientific_pop: 'Научпоп'  
         levels:
-          easy: "Легко"
-          middle: "Средне"
-          hard: "Сложно"
+          easy: 'Легко'
+          middle: 'Средне'
+          hard: 'Сложно'
       article/level:
-        easy: "Легко"
-        middle: "Средне"
-        hard: "Сложно"
-    
+        easy: 'Легко'
+        middle: 'Средне'
+        hard: 'Сложно'
+      group:
+        author: 'Автор'
+        image: 'Фото'
+        name: 'Название'
+        description: 'Описание'
+        token: 'Токен'
+      group/document:
+        document: 'Файл'
+      group/question:
+        title: 'Ваш вопрос'
+        body: 'Описание вопроса'
+      group/question/answer:
+        body: 'Ваш ответ'
+
     errors:
       models:
         subscription:
@@ -70,6 +95,10 @@ ru:
     to_home: 'На главную'
     to_home_errors: 'на главную страницу'
     start: 'Начать использовать'
+    join_group: 'Присоединится'
+    create_group: 'Создать группу'
+    show_group: 'Войти в группу'
+    send_answer: 'Отправить ответ'
 
   devise:
     characters_minimum: 'минимальное количесвто символов'
@@ -92,4 +121,16 @@ ru:
     updated: 'Данные обновлены'
     need_sign_in: 'Необхоидмо авторизоваться'
     not_found: 'Запись не найдена'
-    delete_project: 'Проект удален'
+    delete_document: 'Документ удален'
+    add_question: 'Вопрос добавлен'
+    add_answer: 'Ответ добавлен'
+  
+  pundit:
+    not_authorized: 'Нет доступа'
+  group:
+    joined: 'Вы вступили в группу'
+
+  answers:
+    one: "%{count} ответ"
+    few: "%{count} ответа"
+    many: "%{count} ответов"
