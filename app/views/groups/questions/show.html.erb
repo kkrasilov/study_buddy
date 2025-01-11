@@ -33,7 +33,7 @@
             <% if @question.author.avatar.attached? %>
               <%= image_tag(@question.author.avatar, class: 'h-42 rounded-full w-[50px] h-[50px] border border-yellow-300 object-cover', alt: 'Аватарка') %>
             <% else %>
-              <%= image_tag default_avatar_name(@question.author), alt: "Аватарка", class: "h-42 rounded-full w-[50px] h-[50px] border border-yellow-300 object-cover" %>
+              <%= vite_image_tag default_avatar_name(@question.author), alt: "Аватарка", class: "h-42 rounded-full w-[50px] h-[50px] border border-yellow-300 object-cover" %>
             <% end %>
           </div>
           <div>
