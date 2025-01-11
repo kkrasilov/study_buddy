@@ -24,6 +24,13 @@
       <%= render 'groups/show/questions' %>
       <%= render 'groups/show/questions_footer' %>
       <%= render 'groups/show/chat' %>
+      <% if current_user.admin? || @group.author == current_user  %>
+        <div class="flex justify-end mt-5 w-7/12">
+          <%= link_to t('links.edit_group'), edit_group_path(@group), data: { turbo: false }, class: 'cursor-pointer text-white bg-yellow-500 
+            hover:bg-yellow-600 focus:ring-4 focus:outline-none 
+            focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center' %>
+        </div>
+    <% end %>
     </div>
   </div>
 </div>
