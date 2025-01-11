@@ -88,7 +88,7 @@ class GroupsController < ApplicationController
     return if @group.author == current_user
 
     if params[:token] == @group.token
-      Group::User.create(user: current_user, group: @group)
+      Group::User.find_or_create_by(user: current_user, group: @group)
       flash[:notice] = I18n.t('group.joined')
     end
   end
