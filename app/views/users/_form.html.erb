@@ -6,7 +6,7 @@
           <div class="text-gray-600">
             <p class="font-medium text-lg"><%= t('heading.еdit_profile') %></p>
           </div>
-          <%= form_for user, html: { multipart: true }, data: { turbo: false } do |f| %>
+          <%= form_for @user, html: { multipart: true }, data: { turbo: false } do |f| %>
             <div class="lg:col-span-2">
               <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                 <div class="md:col-span-5">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="md:col-span-5">
                   <%= f.label :country, class: 'text-gray-700' %>
-                  <%= render 'search_input', form: f, user: user %>
+                  <%= render 'search_input', form: f, user: @user %>
                 </div>
                 <div class="md:col-span-5">
                   <%= f.label :city, class: 'text-gray-700' %>

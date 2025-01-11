@@ -1,16 +1,16 @@
 <div class="flex gap-2">
-  <div class="relative">
-    <p id="group-token" class="hidden"><%= @group.token %></p>
-    <button id="token-copy-button" class="cursor-pointer text-white bg-yellow-500 
+  <div class="relative" data-controller="clipboard">
+    <p data-clipboard-target="textElement" id="group-token" class="hidden"><%= @group.token %></p>
+    <button data-clipboard-target="copyButton" data-action="click->clipboard#copy" id="token-copy-button" class="cursor-pointer text-white bg-yellow-500 
                        hover:bg-yellow-600 focus:ring-4 focus:outline-none 
                        focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center flex items-center gap-2">
       <span>Скопировать токен</span>
       <span class="material-icons">share</span>
     </button>
   </div>
-  <div class="relative">
-    <p id="group-url-with-token" class="hidden"><%= "http://localhost:3000/groups/#{@group.id}?token=#{@group.token}" %></p>
-    <button id="token-url-copy-button" class="cursor-pointer text-white bg-yellow-500 
+  <div class="relative" data-controller="clipboard">
+    <p data-clipboard-target="textElement" id="group-url-with-token" class="hidden"><%= "#{request.base_url}/groups/#{@group.id}?token=#{@group.token}" %></p>
+    <button data-clipboard-target="copyButton" data-action="click->clipboard#copy" id="token-url-copy-button" class="cursor-pointer text-white bg-yellow-500 
                        hover:bg-yellow-600 focus:ring-4 focus:outline-none 
                        focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center flex items-center gap-2">
       <span>Скопировать ссылку</span>

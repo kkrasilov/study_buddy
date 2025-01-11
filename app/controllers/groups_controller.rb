@@ -8,11 +8,12 @@ class GroupsController < ApplicationController
     return redirect_to welcome_index_path unless current_user.present?
 
     @q = policy_scope(Group).ransack(params[:q])
-    @groups = @q.result
+    @groups = @q.result.order(:created_at)
   end
 
   def show
     authorize @group
+
     @new_message = current_user.messages.build(group: @group)
   end
 
@@ -40,10 +41,23 @@ class GroupsController < ApplicationController
 
   def update
     authorize @group
+
+    if @group.update(group_params)
+      flash[:notice] = I18n.t('notice.updated')
+    else
+      flash[:error] = @group.errors.full_messages
+    end
+
+    redirect_to group_path(@group)
   end
 
   def destroy
     authorize @group
+
+    @group.destroy
+
+    flash[:notice] = I18n.t('notice.delete_group')
+    redirect_to groups_path
   end
 
   def join
@@ -74,7 +88,7 @@ class GroupsController < ApplicationController
     return if @group.author == current_user
 
     if params[:token] == @group.token
-      Group::User.create(user: current_user, group: @group)
+      Group::User.find_or_create_by(user: current_user, group: @group)
       flash[:notice] = I18n.t('group.joined')
     end
   end

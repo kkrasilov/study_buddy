@@ -2,17 +2,20 @@
 
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[edit update show]
-  before_action :check_admin, only: %i[new create edit update]
 
   def index
-    @q = Article.order(:created_at).ransack(params[:q])
+    @q = Article.sorted.ransack(params[:q])
     @articles = @q.result
   end
 
-  def new; end
+  def new
+    authorize Article.new
+  end
 
   def create
     @article = Article.new(article_params)
+
+    authorize @article
 
     if @article.save
       flash[:notice] = I18n.t('notice.updated')
@@ -23,9 +26,13 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @article
+  end
 
   def update
+    authorize @article
+
     if @article.update(article_params)
       flash[:notice] = I18n.t('notice.updated')
     else
@@ -48,9 +55,5 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find_by(id: params[:id])
     redirect_to root_path, notice: I18n.t('notice.not_found') if @article.blank?
-  end
-
-  def check_admin
-    redirect_to root_path unless current_user&.admin?
   end
 end

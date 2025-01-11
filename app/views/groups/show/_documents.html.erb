@@ -8,7 +8,7 @@
         <span class="material-icons text-gray-600 text-4xl">description</span>
         <%= link_to document.file.filename, rails_blob_path(document.file), class: 'w-24 text-center break-words hover:text-yellow-500'%>
         <% if @group.author == current_user ||  document.author == current_user %>
-          <%= button_to group_document_path(group_id: @group.id, id: document.id), method: :delete do %>
+          <%= button_to group_document_path(group_id: @group.id, id: document.id), method: :delete, data: { controller: "delete", action: "click->delete#confirmDelete" }  do %>
             <span class="material-icons text-gray-600 hover:text-gray-700 cursor-pointer">delete</span>
           <% end %>
         <% end %>

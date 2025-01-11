@@ -89,8 +89,10 @@ ru:
     log_out: 'Выйти'
     сhange_password: 'Сменить пароль'
     edit_profile: 'Редактировать профиль'
+    edit_group: 'Редактировать группу'
     update: 'Обновить'
     delete_profile: 'Удалить мой аккаунт'
+    delete_group: 'Удалить группу'
     load: 'Загрузить'
     to_home: 'На главную'
     to_home_errors: 'на главную страницу'
@@ -122,6 +124,7 @@ ru:
     need_sign_in: 'Необхоидмо авторизоваться'
     not_found: 'Запись не найдена'
     delete_document: 'Документ удален'
+    delete_group: 'Группа удалена'
     add_question: 'Вопрос добавлен'
     add_answer: 'Ответ добавлен'
   
@@ -134,3 +137,18 @@ ru:
     one: "%{count} ответ"
     few: "%{count} ответа"
     many: "%{count} ответов"
+  
+  groups:
+    one: "Группа"
+    few: "Группы"
+    many: "Групп"  
+  
+  questions:
+    one: "Вопрос"
+    few: "Вопроса"
+    many: "Вопросов"  
+    
+  messages:
+    one: "Сообщение"
+    few: "Сообщения"
+    many: "Сообщений"  

@@ -36,7 +36,7 @@
           <% end %>
         </div>
         <%= button_to t('links.delete_profile'), registration_path(resource_name),
-          method: :delete, class: 'text-red-500', form: { data: { turbo_confirm: 'Вы уверены?' } } %>
+          method: :delete, class: 'text-red-500', data: { controller: "delete", action: "click->delete#confirmDelete" }  %>
         <%= link_to t('links.to_return'), :back, class: 'text-gray-600 hover:text-yellow-500' %>
       </div>
     </div>

@@ -3,6 +3,8 @@
 class GroupPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
+      return scope if @user.admin?
+
       @user.groups
     end
   end
@@ -12,9 +14,7 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def show?
-    return false unless @user.present?
-
-    member?
+    admin? || member?
   end
 
   def create?
@@ -22,20 +22,28 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def edit?
-    @user.present?
+    admin? || author?
   end
 
   def update?
-    @user.present?
+    admin? || author?
   end
 
   def destroy?
-    @user.present?
+    admin? || author?
   end
 
   private
 
   def member?
-    @user.groups.include?(@record)
+    @user&.groups&.include?(@record)
+  end
+
+  def admin?
+    @user&.admin?
+  end
+
+  def author?
+    @record.author == @user
   end
 end

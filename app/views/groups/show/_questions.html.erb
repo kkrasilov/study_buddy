@@ -10,7 +10,7 @@
             <span>Автор:</span>
             <span class="font-semibold pr-2"><%= question.author.short_name %></span>
           </div>
-          <%= link_to group_question_path(group_id: @group.id, id: question.id ) do %>
+          <%= link_to group_question_path(group_id: @group.id, id: question.id ), data: { turbo: false } do %>
             <span class="hover:text-yellow-500 hover:font-bold ml-4"><%= question.title %></span>
           <% end %>
         </div>
