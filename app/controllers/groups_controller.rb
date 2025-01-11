@@ -13,6 +13,7 @@ class GroupsController < ApplicationController
 
   def show
     authorize @group
+
     @new_message = current_user.messages.build(group: @group)
   end
 
@@ -52,6 +53,7 @@ class GroupsController < ApplicationController
 
   def destroy
     authorize @group
+
     @group.destroy
 
     flash[:notice] = I18n.t('notice.delete_group')
