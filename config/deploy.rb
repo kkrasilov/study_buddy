@@ -9,7 +9,7 @@ set :domain, '82.97.253.42'
 set :user, 'deploy'
 set :deploy_to, '/var/www/study_buddy'
 set :repository, 'https://github.com/kkrasilov/study_buddy.git'
-set :branch, 'add-vite'
+set :branch, 'fixes'
 
 set :shared_dirs, fetch(:shared_dirs, []).push(
   'storage'
@@ -28,7 +28,7 @@ task :remote_environment do
 end
 
 task :setup do
-  invoke :'nvm'
+  invoke :nvm
 end
 
 desc 'Deploys the current version to the server.'
@@ -66,17 +66,17 @@ end
 namespace :nvm do
   task :load do
     command 'echo "-----> Loading nvm"'
-    command %{
+    command %(
       source ~/.nvm/nvm.sh
-    }
+    )
     command 'echo "-----> Now using nvm v.`nvm --version`"'
   end
 
   task :install do
-    command %{
-      echo "-----> Install node v.#{'16'}"
-      nvm install #{'16'}
+    command %(
+      echo "-----> Install node v.16"
+      nvm install 16
       ln -s ${NVM_BIN} ./.bin
-    }
+    )
   end
 end

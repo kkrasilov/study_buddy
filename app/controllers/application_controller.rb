@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[login email first_name surname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email first_name surname])
   end
 
   def assert_path_allowed

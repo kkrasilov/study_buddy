@@ -134,3 +134,18 @@ ru:
     one: "%{count} ответ"
     few: "%{count} ответа"
     many: "%{count} ответов"
+  
+  groups:
+    one: "Группа"
+    few: "Группы"
+    many: "Групп"  
+  
+  questions:
+    one: "Вопрос"
+    few: "Вопроса"
+    many: "Вопросов"  
+    
+  messages:
+    one: "Сообщение"
+    few: "Сообщения"
+    many: "Сообщений"  
