@@ -12,7 +12,7 @@
   </div>
   <div class="border-yellow-300">
     <% if message.user.avatar.attached? %>
-      <%= image_tag(url_for(message.user.avatar), class: 'rounded-full h-[40px] w-[40px] cursor-pointer object-cover', alt: 'Аватар пользователя') %>
+      <%= image_tag(url_for(message.user.avatar), class: 'rounded-full h-[40px] w-[40px] cursor-pointer object-cover border border-yellow-300', alt: 'Аватар пользователя') %>
     <% else %>
       <%= vite_image_tag default_avatar_name(message.user), alt: "Аватарка", class: "border border-yellow-300 rounded-full h-[40px] w-[40px] cursor-pointer object-cover" %>
     <% end %>
