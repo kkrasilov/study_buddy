@@ -1,0 +1,31 @@
+<div class="flex flex-col items-start border border-gray-300 rounded rounded-xl w-[440px] gap-2">
+  <div class="flex items-center">
+    <% if group.image.attached? %>
+      <%= image_tag(group.image, class: 'rounded-full h-28  w-28 m-4 object-cover border border-gray', alt: 'Изображение группы') %>
+    <% else %>
+      <%= vite_image_tag 'images/default_group.jpg', alt: "Аватарка", class: "rounded-full h-28  w-28 m-4 border object-cover border-gray" %>
+    <% end %>
+    <div class="text-md text-gray-700 font-semibold">
+      <h3><%= group.name %></h3>
+    </div>
+  </div>
+  <div class="ml-4 text-gray-700">
+    Участники
+  </div>
+  <div class="ml-4 mr-4 flex justify-start gap-2 flex-wrap">
+    <% group.users.each do |user| %>
+      <%= link_to user_path(user) do %>
+        <% if user.avatar.attached? %>
+          <%= image_tag(user.avatar, class: 'rounded-full h-10  w-10 cursor-pointer object-cover', alt: 'Аватар пользователя', title: user.short_name) %>
+        <% else %>
+          <%= vite_image_tag default_avatar_name(user), alt: "Аватарка", class: "border border-yellow-300 rounded-full h-10  w-10 cursor-pointer object-cover", title: user.short_name %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="ml-4 mb-4 mt-4">
+    <%= link_to t('links.show_group'), group_path(group), data: { turbo: false }, class: 'cursor-pointer text-white bg-yellow-500 
+                       hover:bg-yellow-600 focus:ring-4 focus:outline-none 
+                       focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center' %>
+  </div>
+</div>

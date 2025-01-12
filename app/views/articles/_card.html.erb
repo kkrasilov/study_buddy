@@ -1,0 +1,31 @@
+<div class="flex justify-center items-center w-[900px]">
+  <% if  article.image.attached? %>
+    <%= image_tag(article.image, class: 'h-42 w-[300px] h-[300px]', alt: 'Изображение статьи') %>
+  <% end %>
+  <div>
+    <h3 class="text-xl font-semibold text-gray-800"><%= article.title %></h3>
+    <div class="flex items-center gap-4 mt-2">
+      <div class="flex items-center gap-1">
+        <span class="material-icons text-blue-500 text-xl">speed</span>
+        <span class="text-blue-500"><%= Article.human_attribute_name("level.#{article.level}")  %></span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="material-icons text-blue-500 text-xl">access_time</span>
+        <span class="text-blue-500"><%= article.minutes_to_read %> мин</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="material-icons text-blue-500 text-xl">visibility</span>
+        <span class="text-blue-500"><%= article.visit_count %></span>
+      </div>
+    </div>
+    <div class="mt-2 text-gray-700">
+      <%= article.description %>
+    </div>
+    <div class="mt-6">
+      <%= link_to 'Читать дальше', article_path(article), class: ' text-md text-yellow-300 hover:text-yellow-500' %>
+    </div>
+    <% if current_user&.admin? %>
+      <%= link_to 'Редактировать', edit_article_path(article), class: ' text-md text-gray-300 hover:text-gray-500' %>
+    <% end %>
+  </div>
+</div>

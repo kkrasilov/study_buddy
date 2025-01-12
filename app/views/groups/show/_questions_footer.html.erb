@@ -1,0 +1,10 @@
+<div class="flex justify-between gap-3 mt-4">
+  <%= link_to 'все вопросы', group_questions_path(group_id: @group.id), class: 'hover:text-yellow-500 font-bold text-gray-700', data: { turbo: false } %>
+  <button data-modal-target="static-modal-question" data-modal-toggle="static-modal-question" class="cursor-pointer">
+    <div class="flex gap-2">
+          <span class="material-icons text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-full text-sm h-6 w-6 flex items-center 
+           justify-center">add</span>
+      <span class="text-sm text-gray-700 hover:text-yellow-500">Добавить обсуждение</span>
+    </div>
+  </button>
+</div>

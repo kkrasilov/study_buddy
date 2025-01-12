@@ -1,0 +1,7 @@
+<script>
+  <% flash.each do |key, messages| %>
+    <% Array.wrap(messages).each do |message| %>
+      <%= render 'shared/toastr', type: flash_type(key), message: message.html_safe  %>
+    <% end %>
+  <% end %>
+</script>

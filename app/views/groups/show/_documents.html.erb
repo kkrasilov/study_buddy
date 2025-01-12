@@ -1,0 +1,25 @@
+<div class="flex flex-col gap-3 mt-5 flex-wrap">
+  <h4 class="text-2xl font-medium  mb-2">
+    Документы
+  </h4>
+  <div class="flex gap-3 flex-wrap">
+    <% @group.documents.each do |document| %>
+      <div class="flex flex-col items-center text-gray-700">
+        <span class="material-icons text-gray-600 text-4xl">description</span>
+        <%= link_to document.file.filename, rails_blob_path(document.file), class: 'w-24 text-center break-words hover:text-yellow-500'%>
+        <% if @group.author == current_user ||  document.author == current_user %>
+          <%= button_to group_document_path(group_id: @group.id, id: document.id), method: :delete, data: { controller: "delete", action: "click->delete#confirmDelete" }  do %>
+            <span class="material-icons text-gray-600 hover:text-gray-700 cursor-pointer">delete</span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="flex items-center">
+      <button data-modal-target="static-modal-document" data-modal-toggle="static-modal-document" class="cursor-pointer 
+      text-white bg-yellow-500 hover:bg-yellow-600 font-medium rounded-full text-sm h-6 w-6 flex items-center 
+      justify-center">
+        <span class="material-icons">add</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+ru:
+  date:
+    formats:
+      custom: "%-d %B %Y"
+    month_names: [~, "января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
+  time:
+    formats:
+      custom: "%-d %B %Y, %H:%M"
+    
+  activerecord:
+    models:
+      user: 'Пользователь'
+      
+    attributes:
+      user:
+        email: 'Email'
+        first_name: 'Имя'
+        surname: 'Фамилия'
+        last_name: 'Отчество'
+        avatar: 'Аватарка'
+        country: 'Страна'
+        city: 'Город'
+        institution: 'Учебное заведение'
+        profession: 'Специальность'
+        gender: 'Пол'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        genders:
+          male: 'Мужской'
+          female: 'Женский'
+      article:
+        title: 'Заголовок'
+        kind: 'Статус'
+        level: 'Сложность'
+        minutes_to_read: 'Минут на чтение'
+        visit_count: 'Количество просмотров'
+        image: 'Заставка'
+        content: 'Контент'
+        kinds:
+          development: 'Разработка'
+          scientific_pop: 'Научпоп'  
+        levels:
+          easy: 'Легко'
+          middle: 'Средне'
+          hard: 'Сложно'
+      article/level:
+        easy: 'Легко'
+        middle: 'Средне'
+        hard: 'Сложно'
+      group:
+        author: 'Автор'
+        image: 'Фото'
+        name: 'Название'
+        description: 'Описание'
+        token: 'Токен'
+      group/document:
+        document: 'Файл'
+      group/question:
+        title: 'Ваш вопрос'
+        body: 'Описание вопроса'
+      group/question/answer:
+        body: 'Ваш ответ'
+
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              user_email_exists: 'Пользователь с таким email уже существует, пожалуйста авторизуйтесь!'
+
+  controllers:
+    application:
+      error: 'Упс! Что-то пошло не так. Код ошибки %{code}.'
+
+  app:
+    name: 'STUDY BUDDY'
+
+  links:
+    root: 'STUDY BUDDY'
+    portfolio: 'Мое портфолио'
+    profile: 'Профиль'
+    register: 'Зарегистрироваться'
+    sign_in: 'Войти'
+    forgot_password: 'Забыли пароль?'
+    send_me: 'Отправить мне инструкции по сбросу пароля'
+    change: 'Изменить'
+    save: 'Сохранить'
+    to_return: 'Вернуться'
+    log_out: 'Выйти'
+    сhange_password: 'Сменить пароль'
+    edit_profile: 'Редактировать профиль'
+    edit_group: 'Редактировать группу'
+    update: 'Обновить'
+    delete_profile: 'Удалить мой аккаунт'
+    delete_group: 'Удалить группу'
+    load: 'Загрузить'
+    to_home: 'На главную'
+    to_home_errors: 'на главную страницу'
+    start: 'Начать использовать'
+    join_group: 'Присоединится'
+    create_group: 'Создать группу'
+    show_group: 'Войти в группу'
+    send_answer: 'Отправить ответ'
+
+  devise:
+    characters_minimum: 'минимальное количесвто символов'
+
+  heading:
+    forgot_your_password: 'Забыли свой пароль?'
+    еdit_profile: 'Редактировать профиль'
+    delete_account: 'Удалить аккаунт?'
+    registration: 'Регистрация'
+    come_in: 'Войти'
+    еdit_password: 'Редактировать пароль'
+    change_password: 'Изменить пароль'
+
+  errors:
+    one: 'В вашей форме %{count} ошибка'
+    few: 'В вашей форме %{count} ошибки'
+    many: 'В вашей форме %{count} ошибок'
+  
+  notice:
+    updated: 'Данные обновлены'
+    need_sign_in: 'Необхоидмо авторизоваться'
+    not_found: 'Запись не найдена'
+    delete_document: 'Документ удален'
+    delete_group: 'Группа удалена'
+    add_question: 'Вопрос добавлен'
+    add_answer: 'Ответ добавлен'
+  
+  pundit:
+    not_authorized: 'Нет доступа'
+  group:
+    joined: 'Вы вступили в группу'
+
+  answers:
+    one: "%{count} ответ"
+    few: "%{count} ответа"
+    many: "%{count} ответов"
+  
+  groups:
+    one: "Группа"
+    few: "Группы"
+    many: "Групп"  
+  
+  questions:
+    one: "Вопрос"
+    few: "Вопроса"
+    many: "Вопросов"  
+    
+  messages:
+    one: "Сообщение"
+    few: "Сообщения"
+    many: "Сообщений"  

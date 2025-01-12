@@ -1,0 +1,96 @@
+<div class="flex justify-center mb-[100px]">
+  <div class="container w-8/12">
+    <div class="flex flex-col items-center gap-4">
+      <div>
+        <% if @group.image.attached? %>
+          <%= image_tag(@group.image, class: 'rounded-full h-[200px] w-[200px] m-4 object-cover border border-gray', alt: 'Изображение группы') %>
+        <% else %>
+          <%= vite_image_tag 'images/default_group.jpg',
+            alt: "Изображение группы",
+            class: "h-[200px] w-[200px] rounded-full h-100 w-100 m-4 border object-cover border-gray" %>
+        <% end %>
+      </div>
+      <div class="font-semibold text-3xl text-gray-800">
+        <%= @group.name %>
+      </div>
+      <div class="w-7/12 text-center text-gray-700">
+        <%= @group.description %>
+      </div>
+      <%= render 'groups/show/tokens' %>
+      <div class="flex flex-col gap-3 mt-10 w-full">
+        <div class="text-xl font-medium mb-2 flex items-center">
+          <%= link_to @group.name, group_path(@group), class: 'text-yellow-500 hover:text-yellow-600', data: { turbo: false } %>
+          <span class="material-icons text-gray-700">arrow_right_alt</span>
+          <%= link_to 'Вопросы и ответы', group_questions_path(group_id: @group.id), class: 'text-yellow-500 hover:text-yellow-600', data: { turbo: false } %>
+          <span class="material-icons text-gray-700">arrow_right_alt</span>
+          <span class="text-gray-700">Вопрос №<%= @question.id %></span>
+        </div>
+        <div class="text-gray-700 font-extrabold text-3xl mb-4">
+          <%= @question.title %>
+        </div>
+        <div class="flex justify-start items-center gap-3">
+          <div>
+            <% if @question.author.avatar.attached? %>
+              <%= image_tag(@question.author.avatar, class: 'h-42 rounded-full w-[50px] h-[50px] border border-yellow-300 object-cover', alt: 'Аватарка') %>
+            <% else %>
+              <%= vite_image_tag default_avatar_name(@question.author), alt: "Аватарка", class: "h-42 rounded-full w-[50px] h-[50px] border border-yellow-300 object-cover" %>
+            <% end %>
+          </div>
+          <div>
+            <%= @question.author.short_name %>, <span class="text-gray-500"><%= I18n.l(@question.created_at, format: :custom)%></span>
+          </div>
+        </div>
+        <div>
+          <%= @question.body %>
+        </div>
+        <div class="border-b pb-2 mb-4">
+          Обсуждение 
+          <% if @question.answers.present?  %>
+            <span class="text-gray-600"><%= "(#{@question.answers.count})" %></span>
+          <% end %>
+        </div>
+        <% @question.answers.each do |answer| %>
+          <div class="flex justify-between">
+            <div class="font-semibold text-sm">
+              <%= answer.author.short_name %>
+            </div>
+            <div class="text-gray-500">
+              <%= I18n.l(answer.created_at, format: :custom)%>
+            </div>
+          </div>
+          <div class="flex justify-start gap-4 border-b pb-4">
+            <div>
+              <% if answer.author.avatar.attached? %>
+                <%= image_tag(answer.author.avatar, class: 'h-42 rounded-full w-[40px] h-[40px] border border-yellow-300 object-cover', alt: 'Аватарка') %>
+              <% else %>
+                <%= vite_image_tag default_avatar_name(answer.author), alt: "Аватарка", class: "h-42 rounded-full w-[40px] h-[40px] border border-yellow-300 object-cover" %>
+              <% end %>
+            </div>
+            <div>
+              <%= answer.body %>
+            </div>
+          </div>
+        <% end %>
+        <div class="w-7/12">
+          <%= form_for Group::Question::Answer.new, url: group_question_answers_path(question_id: @question.id), html: { multipart: true }, data: { turbo: false } do |f| %>
+            <div class="lg:col-span-2">
+              <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="md:col-span-5">
+                  <%= f.label :body, class: 'text-xl'%>
+                  <%= f.rich_text_area :body, class: ' h-[200px]' %>
+                </div>
+                <div class="md:col-span-5 text-right">
+                  <div class="inline-flex items-end">
+                    <%= f.submit t('links.send_answer'), class: 'cursor-pointer text-white bg-yellow-500 
+                       hover:bg-yellow-600 focus:ring-4 focus:outline-none 
+                       focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

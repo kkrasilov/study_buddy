@@ -1,0 +1,67 @@
+<div class="p-6 flex items-center justify-center">
+  <div class="container max-w-screen-lg mx-auto">
+    <div>
+      <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 border border-yellow-300">
+        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="text-gray-600">
+            <p class="font-medium text-lg"><%= t('heading.еdit_profile') %></p>
+          </div>
+          <%= form_for @user, html: { multipart: true }, data: { turbo: false } do |f| %>
+            <div class="lg:col-span-2">
+              <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="md:col-span-5">
+                  <%= f.label :first_name, class: 'text-gray-700' %>
+                  <%= f.text_field :first_name, class: 'h-10 border border-gray-200 text-gray-600 mt-1 rounded-lg px-4 w-full' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :surname, class: 'text-gray-700' %>
+                  <%= f.text_field :surname, class: 'h-10 border border-gray-200 text-gray-600 mt-1 rounded-lg px-4 w-full' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :last_name, class: 'text-gray-700' %>
+                  <%= f.text_field :last_name, class: 'h-10 border border-gray-200 text-gray-600  mt-1 rounded-lg px-4 w-full' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :country, class: 'text-gray-700' %>
+                  <%= render 'search_input', form: f, user: @user %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :city, class: 'text-gray-700' %>
+                  <%= f.text_field :city, class: 'h-10 border border-gray-200 text-gray-600 mt-1 rounded-lg px-4 w-full' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :institution, class: 'text-gray-700' %>
+                  <%= f.text_field :institution, class: 'h-10 border border-gray-200 text-gray-600 mt-1 rounded-lg px-4 w-full' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :profession, class: 'text-gray-700' %>
+                  <%= f.text_field :profession, class: 'h-10 border border-gray-200 text-gray-600 mt-1 rounded-lg px-4 w-full' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :gender, class: 'text-gray-700' %>
+                  <%= f.select :gender, User.genders.keys.map { |gender| [I18n.t("activerecord.attributes.user.genders.#{gender}"), gender] }, {}, class: 'h-10 border border-gray-200 text-gray-600 mt-1 rounded-lg px-4 w-full' %>
+                </div>
+                <div class="md:col-span-5">
+                  <%= f.label :avatar, class: 'text-gray-700' %>
+                  <%= f.file_field :avatar, class: 'block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none' %>
+                </div>
+                <div class="md:col-span-5 text-right">
+                  <div class="inline-flex items-end">
+                    <%= f.submit t('links.save'), class: 'cursor-pointer text-white bg-yellow-500 
+                       hover:bg-yellow-600 focus:ring-4 focus:outline-none 
+                       focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to t('links.сhange_password'), edit_user_registration_path, class: 'text-gray-600 hover:text-yellow-500' %>
+          <br>
+          <%= link_to t('links.to_return'), :back, class: 'text-gray-600 hover:text-yellow-500' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
