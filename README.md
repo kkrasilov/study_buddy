@@ -30,8 +30,9 @@ cd study_buddy
 ```
 bundle install
 npm install
-Настройте базу данных:
 ```
+
+Настройте базу данных:
 
 Создайте файл config/database.yml на основе config/database.yml.example и внесите необходимые изменения для вашей среды. Затем выполните миграции:
 
